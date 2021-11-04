@@ -1,3 +1,7 @@
+import sys
+orig_stdout = sys.stdout
+f = open('output.txt', 'w')
+sys.stdout = f
 # 1
 
 def is_sorted(_list: [], _log: bool = False) -> bool:
@@ -24,6 +28,7 @@ numbers = [
     [4, 8, 12, 12, 24, 36],
     [], [2], [1, 2], [2, 1]
 ]
+print("\n3+4:")
 
 for n in numbers:
     print(str(is_sorted(n,_log=True)) + '\t<-- ' + str(n))
@@ -32,6 +37,8 @@ for n in numbers:
 import C1_us_name_stats as ns 
 
 # 6
+print("\n6:")
+
 def find_name(_name: str, _list: []) -> int:
     s = [ i for i,x in enumerate(ns.us_names_top1000) if x == _name]
     return s[0] if s else -1
@@ -47,7 +54,12 @@ for n in names:
     print('\t\t--> freq: ' + str(name_freq[i]) if i >= 0 else "")
 
 #7 
+print("\n7:")
+
 print("What is the time‐complexity of your function (how many comparisons are needed for n‐elements in the input list of names):")
 print("a : 1")
 print("b : n-1")
 print("b : (n-1)/2")
+
+sys.stdout = orig_stdout
+f.close()
