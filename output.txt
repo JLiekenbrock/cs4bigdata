@@ -1,39 +1,45 @@
-2.) What is the “time‐complexity” of your function (how many comparisons are needed for n‐elements in the input list):
-a : 1
-b : n-1
-b : (n-1)/2
-
-3+4:
-1 < 2 ->  True
-2 < 3 ->  True
-3 < 0 ->  False
-False	<-- [1, 2, 3, 0, 4, 5, 6, 7, 8, 9]
-4 < 8 ->  True
-8 < 12 ->  True
-12 < 12 ->  True
-12 < 24 ->  True
-24 < 36 ->  True
-True	<-- [4, 8, 12, 12, 24, 36]
-True	<-- []
-True	<-- [2]
-1 < 2 ->  True
-True	<-- [1, 2]
-2 < 1 ->  False
-False	<-- [2, 1]
-
-6:
-0	<-- Smith		--> freq: 1.006
-245	<-- Mendoza		--> freq: 0.043
-21	<-- Rodriguez		--> freq: 0.229
-462	<-- Abbott		--> freq: 0.025
+--> 1
+a: The built-in sort function directly sorts the list it is called on. The return value of it is none. No copies are made at all.
+b: First a shallow copy is made. Than the referenced values are sorted, thus both lists are sorted as they are actually the same one.
+c: The sorted function creates a deep copy while sorting. So in the end only the copied list is sorted.
+--> 2
+854	<-- Smith		--> freq: 0.014
+617	<-- Mendoza		--> freq: 0.019
+785	<-- Rodriguez		--> freq: 0.015
+0	<-- Abbott		--> freq: 1.006
 -1	<-- Blokes
-250	<-- Brewer		--> freq: 0.042
-999	<-- Vang		--> freq: 0.012
-440	<-- Zimmerman		--> freq: 0.026
-59	<-- Bailey		--> freq: 0.115
-
-7:
-What is the time‐complexity of your function (how many comparisons are needed for n‐elements in the input list of names):
+99	<-- Brewer		--> freq: 0.083
+918	<-- Vang		--> freq: 0.013
+999	<-- Zimmerman		--> freq: 0.012
+28	<-- Bailey		--> freq: 0.192
+--> 3
+What is the “time‐complexity” of this “binary” search function (comparisons are needed for n‐elements in the input list):
 a : 1
-b : n-1
-b : (n-1)/2
+b : log2 n
+b : log2 n
+--> 4
+How many steps are needed for the list of 1000 names for cases:
+Linear search in unsorted list:
+on avg : (n-1)/2
+worst case: n-1
+Binary search in sorted list:
+on avg : ~10
+worst case: ~10
+--> 5
+5: Since the index in the ordered list is represented by the index of the data strucure it is only necessary to store the associated index of the unordered list. To be able to look it up easily i would just use a plain list.
+--> 6
+6: n
+--> 7
+--> 8
+854	<-- Smith		--> freq: 1.006
+617	<-- Mendoza		--> freq: 0.043
+785	<-- Rodriguez		--> freq: 0.229
+0	<-- Abbott		--> freq: 0.025
+-1	<-- Blokes
+99	<-- Brewer		--> freq: 0.042
+918	<-- Vang		--> freq: 0.012
+999	<-- Zimmerman		--> freq: 0.026
+28	<-- Bailey		--> freq: 0.115
+--> 9
+9: A dictionary that stores the indexes in both lists would be a good alternative, because it could be very easily reversed by swapping the key and the value.
+9: A dictionary is a hash table. The hash table consists of slots which are assigned in order of entry insertion (> Python 3.7). Each slot entry is a combination of hash, key and value, implemented as C struct. Lookup costs O(1)
