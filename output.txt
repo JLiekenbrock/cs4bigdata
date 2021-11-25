@@ -1,7 +1,7 @@
 --> 1
-a: The built-in sort function directly sorts the list it is called on. The return value of it is none. No copies are made at all.
+a: The built-in sort function directly sorts the list it is called on. The return value of it is none. No copies are made.
 b: First a shallow copy is made. Than the referenced values are sorted, thus both lists are sorted as they are actually the same one.
-c: The sorted function creates a deep copy while sorting. So in the end only the copied list is sorted.
+c: The sorted function creates a shallow copy while sorting. It then returns the sorted copy.
 --> 2
 854	<-- Smith		--> freq: 0.014
 617	<-- Mendoza		--> freq: 0.019
@@ -26,10 +26,11 @@ Binary search in sorted list:
 on avg : ~10
 worst case: ~10
 --> 5
-5: Since the index in the ordered list is represented by the index of the data strucure it is only necessary to store the associated index of the unordered list. To be able to look it up easily i would just use a plain list.
+5: The most memory efficient solution would be a list or an array, where the index represents the position in the sorted list and the value corresponds to the value in the sorted list.
+5: To avoid searching a mapping dictionary is created on the unsorted list. The mapping dictionary has the names as keys and the original index as value.
+5: The index is then build by retrieving the indices from the dictionary using the sorted names.
 --> 6
 6: n
---> 7
 --> 8
 854	<-- Smith		--> freq: 1.006
 617	<-- Mendoza		--> freq: 0.043
@@ -41,5 +42,5 @@ worst case: ~10
 999	<-- Zimmerman		--> freq: 0.026
 28	<-- Bailey		--> freq: 0.115
 --> 9
-9: A dictionary that stores the indexes in both lists would be a good alternative, because it could be very easily reversed by swapping the key and the value.
+9: A dictionary that stores the indexes in both lists would be a good alternative, because it could be very easily reversed by swapping the key and the value. The mapping dictionary i created could also be used
 9: A dictionary is a hash table. The hash table consists of slots which are assigned in order of entry insertion (> Python 3.7). Each slot entry is a combination of hash, key and value, implemented as C struct. Lookup costs O(1)

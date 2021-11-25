@@ -1,7 +1,4 @@
-import sys
-orig_stdout = sys.stdout
-f = open('output.txt', 'w')
-sys.stdout = f
+
 # 1
 
 def is_sorted(_list: [], _log: bool = False) -> bool:
@@ -60,8 +57,5 @@ print("What is the time‐complexity of your function (how many comparisons are 
 print("a : 1")
 print("b : n-1")
 print("b : (n-1)/2")
-
-sys.stdout = orig_stdout
-f.close()
 
 
