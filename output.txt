@@ -3,6 +3,15 @@ a: The built-in sort function directly sorts the list it is called on. The retur
 b: First a shallow copy is made. Than the referenced values are sorted, thus both lists are sorted as they are actually the same one.
 c: The sorted function creates a shallow copy while sorting. It then returns the sorted copy.
 --> 2
+854	<-- Smith		--> freq: 0.014
+617	<-- Mendoza		--> freq: 0.019
+785	<-- Rodriguez		--> freq: 0.015
+0	<-- Abbott		--> freq: 1.006
+-1	<-- Blokes
+99	<-- Brewer		--> freq: 0.083
+918	<-- Vang		--> freq: 0.013
+999	<-- Zimmerman		--> freq: 0.012
+28	<-- Bailey		--> freq: 0.192
 --> 3
 What is the “time‐complexity” of this “binary” search function (comparisons are needed for n‐elements in the input list):
 a : 1
@@ -23,6 +32,15 @@ worst case: ~10
 --> 6
 6: n
 --> 8
+854	<-- Smith		--> freq: 1.006
+617	<-- Mendoza		--> freq: 0.043
+785	<-- Rodriguez		--> freq: 0.229
+0	<-- Abbott		--> freq: 0.025
+-1	<-- Blokes
+99	<-- Brewer		--> freq: 0.042
+918	<-- Vang		--> freq: 0.012
+999	<-- Zimmerman		--> freq: 0.026
+28	<-- Bailey		--> freq: 0.115
 --> 9
 9: A dictionary that stores the indexes in both lists would be a good alternative, because it could be very easily reversed by swapping the key and the value. The mapping dictionary i created could also be used
 9: A dictionary is a hash table. The hash table consists of slots which are assigned in order of entry insertion (> Python 3.7). Each slot entry is a combination of hash, key and value, implemented as C struct. Lookup costs O(1)

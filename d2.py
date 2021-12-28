@@ -34,36 +34,6 @@ def find_name_fast(_name: str, _sortedlist: [], _lower : int = 0, _upper: int = 
         return find_name_fast(_name,_sortedlist,_lower,_upper) if _lower <= _upper else -1
 
 
-index = [-1]
-
-def pass_index(_middlename:str, _name:str,_middle,_sortedlist):
-    if index!=[-1]:
-        if _middlename < _name:
-            index[0] = _middle+1 
-        else:
-            index[1] = _middle-1
-    else:
-        index = [0,len(_sortedlist)-1]
-
-pass_index("a", "b",2,["a","b","c"])
-
-
-def find_name_fast(_name: str, _sortedlist: []) -> int:
-
-    if not index:
-        
-
-    if not pass_index.values:
-        middle = len(_sortedlist) // 2
-    else:
-        middle = sum(pass_index) // 2
-
-    if _sortedlist[middle] == _name:
-        return middle
-    else:
-        pass_index(_sortedlist[middle],_name.middle)
-        return find_name_fast(_name,_sortedlist) if index[0] <= index[1] else -1
-
 sorted_list = sorted(ns.us_names_top1000)
 
 for n in names:
@@ -128,4 +98,3 @@ print("9: A dictionary is a hash table. The hash table consists of slots which a
 
 sys.stdout = orig_stdout
 f.close()
-
