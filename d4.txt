@@ -1,0 +1,25 @@
+#2
+cost_constraint:    9, b/c:     0/0, solution: []
+cost_constraint:   10, b/c:   50/10, solution: [0]
+cost_constraint:   20, b/c:   80/20, solution: [0, 2]
+cost_constraint:   30, b/c:  120/30, solution: [7]
+cost_constraint:   40, b/c:  170/40, solution: [0, 7]
+cost_constraint:   50, b/c:  200/50, solution: [0, 2, 7]
+cost_constraint:   60, b/c:  230/60, solution: [0, 2, 7, 8]
+cost_constraint:  100, b/c: 290/100, solution: [0, 2, 5, 6, 7, 8]
+cost_constraint:  150, b/c: 350/150, solution: [0, 2, 5, 6, 7, 8, 9, 10]
+cost_constraint:  200, b/c: 375/170, solution: [0, 1, 2, 5, 6, 7, 8, 9, 10]
+cost_constraint: 1000, b/c: 420/310, solution: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#3
+The optimized solution yields a total benefit of 375 with total costs of 170. 
+The initial solution only generated a benefit of 180. 
+
+#4 The new optimal solution creates 580 benefit at 200 cost and contains these tasks:  [0, 2, 5, 6, 7, 8, 13, 14, 15, 16, 17]
+#5 The new optimal solution creates 580 benefit at 200 cost and contains these tasks:  [0, 2, 5, 6, 7, 8, 13, 14, 15, 16, 17]
+The complexity of the algorithm is exponential. This means that the execution time will increase significantly with each added task.
+
+#6
+The solutions space for 11 tasks contains 2^11 = 2048 possible solutions. The solutions space for 20 is 2^20 = 1048576 possible solutions.
+This is an increase of 2^20-2^11 = 1048576-2048 = 1046528 possible solutions.
+

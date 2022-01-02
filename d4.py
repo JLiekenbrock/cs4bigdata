@@ -1,4 +1,7 @@
-import timeit
+import sys
+orig_stdout = sys.stdout
+f = open('d4.txt', 'w')
+sys.stdout = f
 
 scrum_tasks = [
     # task_id, benefit, cost estimates, description
@@ -15,12 +18,13 @@ scrum_tasks = [
         ('id_387', 30, 25, 'feat #8427: new option to change color scheme'),
     ]
 
+
 def generate(_items: [int]) -> [[int]]:
     res = [[]]
     for item in _items:
         new_set = [r+[item] for r in res]
         res.extend(new_set)
-    yield res
+    return res
 
 #1:
 def optimize_scrum_tasks(_cost_constraint: int) -> (int, int, [int]):
@@ -36,6 +40,8 @@ def optimize_scrum_tasks(_cost_constraint: int) -> (int, int, [int]):
                 _solution = solution
     return _sol_benefit, _sol_cost, _solution
 
+#2
+print("#2")
 for cost_limit in [9, 10, 20, 30, 40, 50, 60, 100, 150, 200, 1000]:
     sol = optimize_scrum_tasks(cost_limit)
     print('cost_constraint:' + str(cost_limit).rjust(5) + \
@@ -44,8 +50,9 @@ for cost_limit in [9, 10, 20, 30, 40, 50, 60, 100, 150, 200, 1000]:
 
 #3 
 print('''
-    The optimized solution yields a total benefit of 375 with total costs of 170. 
-    The initial solution only generated a benefit of 180. 
+#3
+The optimized solution yields a total benefit of 375 with total costs of 170. 
+The initial solution only generated a benefit of 180. 
 ''')
 
 #4
@@ -61,7 +68,7 @@ new_tasks = [
 scrum_tasks.extend(new_tasks)
 
 opt = optimize_scrum_tasks(200)
-print("The new optimal solution creates", opt[0], "benefit at", opt[1],"cost and contains these tasks: ",opt[2])
+print("#4 The new optimal solution creates", opt[0], "benefit at", opt[1],"cost and contains these tasks: ",opt[2])
 
 #5 
 new_tasks = [
@@ -71,12 +78,16 @@ new_tasks = [
 scrum_tasks.extend(new_tasks)
 
 opt = optimize_scrum_tasks(200)
-print("The new optimal solution creates", opt[0], "benefit at", opt[1],"cost and contains these tasks: ",opt[2])
+print("#5 The new optimal solution creates", opt[0], "benefit at", opt[1],"cost and contains these tasks: ",opt[2])
 
 print("The complexity of the algorithm is exponential. This means that the execution time will increase significantly with each added task.")
 
 #6
 print('''
-    The solutions space for 11 tasks contains 2^11 = 2048 possible solutions. The solutions space for 20 is 2^20 = 1048576 possible solutions.
-    This is an increase of 2^20-2^11 = 1048576-2048 = 1046528 possible solutions.
-    ''')
+#6
+The solutions space for 11 tasks contains 2^11 = 2048 possible solutions. The solutions space for 20 is 2^20 = 1048576 possible solutions.
+This is an increase of 2^20-2^11 = 1048576-2048 = 1046528 possible solutions.
+''')
+
+sys.stdout = orig_stdout
+f.close()
